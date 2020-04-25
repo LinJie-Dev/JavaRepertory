@@ -3,7 +3,7 @@ package com.hjpz;
 import org.springframework.boot.SpringApplication;
 
 /**
- * @ClassName : SpringBootApplication
+ * @ClassName : com.hjpz.SpringBootApplication
  * @Description : SpringBoot快速启动器
  * @Author : 林杰
  * @Date: 2020-04-25 12:58
