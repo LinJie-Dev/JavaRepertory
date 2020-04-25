@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hjpz.dao.IOrderDao">
+
+    <!--查询运单信息-->
+    <select id="queryOrderByOrderId" resultType="com.hjpz.vo.OrderVo">
+        SELECT  ORDER_ID as orderNumber,PIECES as pieces,WEIGHT as weight,VOLUME as volume FROM t_ope_order WHERE ORDER_ID = #{orderNumber}
+    </select>
+</mapper>
