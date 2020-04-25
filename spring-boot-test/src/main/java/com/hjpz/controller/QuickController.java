@@ -1,15 +1,11 @@
 package com.hjpz.controller;
 
-import com.hjpz.dao.IOrderDao;
 import com.hjpz.service.IOrderService;
 import com.hjpz.vo.OrderVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName : QuickController
@@ -26,8 +22,8 @@ public class QuickController {
 
     private Logger logger = LoggerFactory.getLogger(QuickController.class);
 
-    @GetMapping("/{orderNumber}")
-    public OrderVo quickTest(@PathVariable("orderNumber") String orderNumber) {
+    @GetMapping("")
+    public OrderVo quickTest(@RequestParam("orderNumber") String orderNumber) {
         logger.info("快速测试入口!。。。单号为：{}", orderNumber);
         return orderService.queryOrderVoByOrderId(orderNumber);
     }
