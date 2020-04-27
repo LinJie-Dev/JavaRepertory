@@ -10,6 +10,12 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * @description Swagger2接口文档配置类
+ * @author 林杰
+ * @date 2020/4/27 10:47
+ * @version V1.0
+ */
 @Configuration
 @EnableSwagger2
 public class Swagger2 {
@@ -19,8 +25,9 @@ public class Swagger2 {
      */
     @Bean
     public Docket createRestApi() {
+        // 调用apiInfo方法,创建一个ApiInfo实例,里面是展示在文档页面信息内容
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())//调用apiInfo方法,创建一个ApiInfo实例,里面是展示在文档页面信息内容
+                .apiInfo(apiInfo())
                 .select()
                 //控制暴露出去的路径下的实例
                 //如果某个接口不想暴露,可以使用以下注解
@@ -29,17 +36,14 @@ public class Swagger2 {
                 .paths(PathSelectors.any())
                 .build();
     }
-    //构建 api文档的详细信息函数
+
+    /**
+     * 构建 api文档的详细信息函数
+     * @return
+     */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 //页面标题
-                .title("Spring Boot Swagger2 构建RESTful API")
-                //条款地址
-                .termsOfServiceUrl("http://despairyoke.github.io/")
-                .contact("zwd")
-                .version("1.0")
-                //描述
-                .description("API 描述")
-                .build();
+                .title("Java后端接口文档!").version("1.0").description("API 描述").build();
     }
 }
