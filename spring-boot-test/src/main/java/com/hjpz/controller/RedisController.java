@@ -34,9 +34,9 @@ public class RedisController {
             @ApiImplicitParam(dataType = "string",name = "value",value = "RedisValue",required = true)
     })
     @PostMapping("/set")
-    public ResponseBase<String> set(String key, String value) {
-        log.info("放入Redis缓存!!! key：{}, value：{}", key, value);
-        this.redisUtil.set(key, value);
+    public ResponseBase<String> set(String key, String value, long time) {
+        log.info("放入Redis缓存!!! key：{}, value：{}, time：{}", key, value, time);
+        this.redisUtil.set(key, value, time);
         return ResponseBase.success("success");
     }
 
